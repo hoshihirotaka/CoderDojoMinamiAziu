@@ -160,7 +160,7 @@
                 <li>持ち物：ノートパソコン（お持ちの方）</li>
                 <li>参加費：無料</li>
               </ul>
-              <a class="button button--primary" href="https://coderdojo-minamiaizu.doorkeeper.jp/events/194649" target="_blank" rel="noreferrer">Doorkeeperで申し込む</a>
+              <a class="button button--primary" id="apply-button" href="https://coderdojo-minamiaizu.doorkeeper.jp/events/194649" target="_blank" rel="noreferrer">Doorkeeperで申し込む</a>
             </div>
             <div class="schedule__map">
               <img src="./assets/access-map.png" alt="多目的ホール道順" />
@@ -251,5 +251,17 @@
       </div>
       <p class="footer__note">© 2026 Tajima Programming Club / CoderDojo Minamiaizu</p>
     </footer>
+    <script>
+      const applyButton = document.getElementById("apply-button");
+      if (applyButton && typeof gtag === "function") {
+        applyButton.addEventListener("click", () => {
+          gtag("event", "apply_click", {
+            event_category: "engagement",
+            event_label: "doorkeeper_event",
+            value: 1,
+          });
+        });
+      }
+    </script>
   </body>
 </html>
